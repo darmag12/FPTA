@@ -376,7 +376,7 @@ main {
 .fdot-logo {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     width: auto;
     right: 0;
 }
