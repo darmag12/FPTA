@@ -61,7 +61,7 @@ button, a {
     position: absolute;
     top: 0;
     padding: 20px 80px 5px 80px;
-    background-color: #30414bd0;
+    background-color: #30414b;
     clip-path: polygon(100% 0%, 100% 50%, 480px 50%, 430px 100%, 0 100%, 0 0);
     /* box-shadow: 2px 5px 20px rgba(216, 216, 216, 0.81); */
     width: 100%;
@@ -336,7 +336,7 @@ main {
     font-weight: 600;
     color: #5b01ff;
     text-transform: uppercase;
-    padding: 20px 60px;
+    padding: 60px;
     box-shadow: 8px 10px 6px -8px rgba(89,89,89,1);
     position: relative;
     z-index: 13;
