@@ -100,7 +100,7 @@
     overflow: hidden;
 }
 
-.hero__right-btn {
+/* .hero__right-btn {
     position: absolute;
     bottom: 10%;
     left: 50%;
@@ -117,7 +117,7 @@
     .hero__right-btn .transit-btn{
         font-size: 1.4rem;
     }
-}
+} */
 
 .section {
     width: 100%;
@@ -129,10 +129,25 @@
 
 .section.section-one{
     background-color: #fff;
+    padding: 80px 180px;
 }
 
 .section.section-one p {
     font-size: 1.875rem;
+}
+
+.section-one__btn {
+    margin: 40px 0 10px 0;
+}
+
+.section-one__btn .transit-btn {
+    font-family: GothamBold;
+    font-size: 2rem;
+    color: #fff;
+    background-color: #5B01FF;
+    border: 1px solid #F6DBFF;
+    border-radius: 100px;
+    padding: 30px 100px;
 }
 
 /* Section two styles starts here */
