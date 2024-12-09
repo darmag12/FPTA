@@ -1,139 +1,299 @@
 .hero{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, minmax(min-content, max-content));
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: minmax(1080px, auto);
+    place-content: center;
     background: radial-gradient(circle at -5% 50%, #5b01ff 25%, #9801ff 25% 37%, #c700ff 35% 70%, #5b01ff 80%);
-    /* width: 100%; */
-    position: relative;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
 }
+
+@media screen and (max-width: 1240px) {
+    .hero {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 640px auto;
+        background: radial-gradient(circle at 50% 130%, #5b01ff 0%, #9801ff 25% 37%, #c700ff 35% 70%, #5b01ff 80%);
+        background-position: bottom;
+        background-size: 150% 150%;
+    }
+}
+
 
 .hero__left {
-    display: grid;
-    margin-top: 100px;
-    padding: 100px 30px 50px 100px;
-    position: relative;
-}
-
-@media screen and (min-width: 1950px) {
-
-}
-
-.hero__left::before {
-    display: inline-block;
-    content: '';
-    position: absolute;
-    top: 45%;
-    left: 99.5%;
-    transform: translate(0, -50%);
-    width: 100%;
-    height: 220%;
-    background: rgb(91,1,255);
-    background: linear-gradient(0deg, rgba(91,1,255,1) 20%, rgba(152,1,255,0.9962359943977591) 40%, #DA69FF 60%);
-    border: none;
-    border-radius: 50%;
-    box-shadow: -8px -8px 6px -8px #c200f800;
-    z-index: 0;
-}
-
-@media screen and (max-width: 1679px) {
-    .hero__left::before {
-        left: 98.5%;
-    }
-}
-
-.hero__left h1{
-    font-size: 7rem;
-    color: #fff;
-    margin: 20px 0;
-    width: 100%;
     text-align: center;
+    grid-column: 3/6;
+    align-content: center;
 }
 
-@media screen and (max-width: 1679px) {
-    .hero__left h1{
-        font-size: 5.5rem;
+@media screen and (max-width: 2100px) {
+    .hero__left {
+        grid-column: 2/6;
     }
 }
 
-@media screen and (max-width: 1375px) {
-    .hero__left h1{
+@media screen and (max-width: 1800px) {
+    .hero__left {
+        padding-left: 30px;
+        grid-column: 1/6;
+    }
+}
+
+@media screen and (max-width: 1240px) {
+    .hero__left {
+        text-align: start;
+        grid-row: 2;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .hero__left {
+        padding: 0 10px 0 10px;
+    }
+}
+
+
+.hero__left h1 {
+    font-family: GothamBold;
+    font-size: 6rem;
+    color: #fff;
+}
+
+@media screen and (max-width: 1500px) {
+    .hero__left h1 {
+        font-family: GothamBold;
         font-size: 4.5rem;
+        color: #fff;
     }
 }
 
-@media screen and (max-width: 1172px) {
-    .hero__left h1{
-        font-size: 3.8rem;
+@media screen and (max-width: 1240px) {
+    .hero__left h1 {
+        font-size: 5.1rem;
+    }
+}
+
+
+@media screen and (max-width: 750px) {
+    .hero__left h1 {
+        font-size: 4rem;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .hero__left h1 {
+        font-size: 3rem;
     }
 }
 
 .left__floridabtn svg{
- width: 100%;
+    position: relative;
+    width: fit-content;
+    z-index: 9;
 }
+
+@media screen and (max-width: 1500px) {
+    .left__floridabtn svg {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .left__floridabtn svg {
+        max-width: 600px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .left__floridabtn svg {
+        max-height: 100px;
+    }
+}
+
 
 .left__dynamictxt {
-    margin: 20px 0;
+    display: block;
     text-align: center;
 }
-
-.left__dynamictxt svg{
-    width: 100%;
-    height: fit-content;
-}
-@media screen and (min-width: 2000px) {
-    .left__dynamictxt svg{
-        width: 75%;
+/* Hide display svg on bigger screens */
+@media screen and (min-width: 1241px) {
+    .left__dynamictxt {
+        display: none;
     }
 }
 
-@media screen and (min-width: 3000px) {
+@media screen and (max-width: 750px) {
     .left__dynamictxt svg{
-        width: 65%;
+        max-width: 615px;
+        /* max-height: 150px; */
+        width: 100%;
     }
 }
 
+@media screen and (max-width: 500px) {
+    .left__dynamictxt svg{
+        max-height: 150px;
+    }
+}
+
+/* Left side styles end here */
+
+/* Right side starts here */
 
 .hero__right {
-    display: grid;
+    grid-column: span 7;
     position: relative;
     overflow: hidden;
 }
 
-/* .hero__right-btn {
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+    position: relative;
+
+}
+@media screen and (max-width: 1240px) {
+    .slider {
+        height: 95%;
+    }
+}
+
+.slider::after {
+    content: "";
     position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: -18px;
+    background: linear-gradient(180deg, #DA69FF 30%, #5B01FF 80%);
+    clip-path: ellipse(95% 120% at 100% 50%);
+    height: 100%;
+    width: 100%;
+    z-index: 1;
 }
 
-@media screen and (max-width: 1477px) {
-    .hero__right-btn .transit-btn{
-        font-size: 1.7rem;
+@media screen and (max-width: 1240px) {
+    .slider::after {
+        top: 12px;
+        left: 0;
+        background: linear-gradient(to left, #DA69FF 30%, #5B01FF 80%);
+        clip-path: ellipse(100% 100% at 50% 0);
     }
 }
 
-@media screen and (max-width: 1305px) {
-    .hero__right-btn .transit-btn{
-        font-size: 1.4rem;
+.slide {
+    min-width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 0.8s;
+    position: absolute;
+    z-index: 2;
+}
+
+.slide-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide-content svg{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,50%);
+}
+
+@media screen and (max-width: 1500px) {
+    .slide-content svg{
+        width: 600px;
     }
-} */
+}
+
+/* remove the svg sitting on top of the slider on a 1240px screen size */
+@media screen and (max-width: 1240px) {
+    .slide-content svg{
+        display: none;
+    }
+}
+
+.slide img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* border: 15px solid red; */
+    /* border-radius: 25% 0px 0px 25% / 120% 0px 0px 120%; */
+    clip-path: ellipse(95% 120% at 100% 50%);
+    /* border-right: 0; */
+    filter: brightness(60%);
+
+}
+
+@media screen and (max-width: 1240px) {
+    .slide img {
+        clip-path: ellipse(100% 100% at 50% 0);
+    }
+}
+
+/* Hero banner styles end here */
 
 .section {
     width: 100%;
     text-align: center;
-    padding: 50px 100px;
+    padding: 60px 100px;
+}
+
+@media screen and (max-width: 1000px) {
+    .section {
+        padding: 50px 40px;
+    }
 }
 
 /* Section one styles start here */
 
 .section.section-one{
     background-color: #fff;
-    padding: 80px 180px;
+    padding: 80px 280px;
+}
+@media screen and (min-width: 2000px) {
+    .section.section-one{
+        padding: 80px 380px;
+    }
+}
+
+@media screen and (max-width: 1730px) {
+    .section.section-one{
+        padding: 80px 180px;
+    }
+}
+
+@media screen and (max-width: 1730px) {
+    .section.section-one{
+        padding: 80px 180px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .section.section-one{
+        padding: 80px 50px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .section.section-one{
+        padding: 80px 20px;
+    }
 }
 
 .section.section-one p {
-    font-size: 1.875rem;
+    font-size: 1.775rem;
+}
+
+@media screen and (max-width: 500px) {
+    .section.section-one p {
+        font-size: 1.375rem;
+    }
 }
 
 .section-one__btn {
@@ -150,6 +310,20 @@
     padding: 30px 100px;
 }
 
+@media screen and (max-width: 589px) {
+    .section-one__btn .transit-btn {
+        font-size: 1.8rem;
+        padding: 30px 60px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .section-one__btn .transit-btn {
+        font-size: 1.3rem;
+        padding: 30px 60px;
+    }
+}
+
 /* Section two styles starts here */
 .section.section-two{
     background-color: #8B01E9;
@@ -159,6 +333,24 @@
 .section.section-two h3{
     font-family: GothamCondBold;
     font-size: 4.6rem;
+}
+
+@media screen and (max-width: 752px) {
+    .section.section-two h3{
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 522px) {
+    .section.section-two h3{
+        font-size: 2.2rem;
+    }
+}
+
+@media screen and (max-width: 401px) {
+    .section.section-two h3{
+        font-size: 2rem;
+    }
 }
 
 .economic-impact-container {
@@ -174,7 +366,7 @@
     .economic-impact-container {
         grid-template-columns: repeat(1, minmax(min-content, max-content));
         column-gap: 0;
-        row-gap: 20px;
+        row-gap: 0;
     }
 }
 
@@ -190,6 +382,12 @@
 
 .economic-impact-container .impact p {
     font-size: 1.75rem;
+}
+
+@media screen and (max-width: 522px) {
+    .economic-impact-container .impact p {
+        font-size: 1.25rem;
+    }
 }
 
 /* Section three styles starts here */
@@ -224,4 +422,18 @@
     border: 1px solid #F6DBFF;
     border-radius: 100px;
     padding: 30px 40px;
+}
+
+@media screen and (max-width: 582px) {
+    .transit-btn {
+        font-size: 1.3rem;
+        padding: 30px 40px;
+    }
+}
+
+@media screen and (max-width: 435px) {
+    .transit-btn {
+        font-size: 1.09rem;
+        padding: 30px 25px;
+    }
 }

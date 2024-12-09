@@ -60,23 +60,66 @@ button, a {
     margin: 200px 0;
 }
 
+.container {
+    width: 100%;
+    max-width: 1920px;
+}
+
 .header {
     position: absolute;
     top: 0;
-    padding: 20px 80px 5px 80px;
+    padding: 20px 20px 5px 60px;
     background-color: #30414b;
+    /* clip-path: polygon(100% 0%, 100% 50%, 25% 50%, 23% 100%, 0 100%, 0 0); */
     clip-path: polygon(100% 0%, 100% 50%, 480px 50%, 430px 100%, 0 100%, 0 0);
     /* box-shadow: 2px 5px 20px rgba(216, 216, 216, 0.81); */
     width: 100%;
+    z-index: 99;
+}
+
+@media screen and (max-width: 1240px) {
+    .header {
+        position: relative;
+        padding: 12px 20px 5px 20px;
+        clip-path: none;
+    }
+}
+
+.header .header-content {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    z-index: 99;
+    width: 100%;
+}
+
+@media screen and (max-width: 1240px) {
+    .header .header-content {
+        align-items: center;
+    }
 }
 
 /* LOGO */
 #logo svg{
     animation: fill-white 1.5s ease forwards 3.3s !important;
+}
+
+@media screen and (max-width: 1240px) {
+    #logo{
+        vertical-align: text-top;
+    }
+}
+
+@media screen and (max-width: 1240px) {
+    #logo svg{
+        width: 280px;
+        vertical-align: text-top;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    #logo svg{
+        width: 250px;
+    }
 }
 
 #logo svg path:nth-child(1){
@@ -126,32 +169,78 @@ button, a {
 .header-nav i{
     font-size: 3rem;
     color: #fff;
-    margin-right: 30px;
     vertical-align: text-top;
     cursor: pointer;
 }
 
-main {
-    position: relative;
+@media screen and (max-width: 1240px) {
+    .header-nav i{
+        font-size: 2.5rem;
+        vertical-align: text-bottom;
+    }
 }
+@media screen and (max-width: 580px) {
+    .header-nav i{
+        font-size: 2rem;
+    }
+}
+
 
 .section-container {
-    display: flex;
-    /* width: 90%;
-    max-width: 1200px; */
-    height: 80vh;
-    /* margin-top: 60px; */
-    /* background: rgb(91,1,255); */
-    /* background: linear-gradient(90deg, rgba(91,1,255,1) 20%, rgba(152,1,255,0.9962359943977591) 20% 40%, rgba(199,0,255,1) 40% 60%); */
     background: radial-gradient(circle at -5% 50%, #5b01ff 25%, #9801ff 25% 37%, #c700ff 35% 70%, #5b01ff 80%);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: relative;
-    overflow: hidden;
 }
 
-@media screen and (max-height: 1100px) {
-    .section-container {
-        height: 1000px;
+/* Homepage Hero banner styles start here */
+
+/* Left side styles start here */
+.hompage-hero {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: minmax(1080px, auto);
+    place-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 1240px) {
+    .hompage-hero {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 640px auto;
+        background: radial-gradient(circle at 50% 130%, #5b01ff 0%, #9801ff 25% 37%, #c700ff 35% 70%, #5b01ff 80%);
+        background-position: bottom;
+        background-size: 150% 150%;
+    }
+}
+
+.hompage-hero-left {
+    grid-column: 3/6;
+    align-content: center;
+}
+
+@media screen and (max-width: 2100px) {
+    .hompage-hero-left {
+        grid-column: 2/6;
+    }
+}
+
+@media screen and (max-width: 1800px) {
+    .hompage-hero-left {
+        padding-left: 30px;
+        grid-column: 1/6;
+    }
+}
+
+@media screen and (max-width: 1240px) {
+    .hompage-hero-left {
+        grid-row: 2;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .hompage-hero-left {
+        padding: 0 10px 0 10px;
     }
 }
 
@@ -159,177 +248,84 @@ main {
     font-family: GothamBold;
     font-size: 5rem;
     color: #fff;
-    position: absolute;
-    top: 15%;
-    left: 10%;
-    margin-top: 20px;
-    z-index: 11;
 }
 
-@media screen and (max-width: 1830px) {
+@media screen and (max-width: 1500px) {
     .header-text {
-        left: 5%;
+        font-family: GothamBold;
+        font-size: 4.5rem;
+        color: #fff;
     }
-} 
-
-
-@media screen and (max-width: 1600px) {
+}
+@media screen and (max-width: 750px) {
     .header-text {
-        font-size: 4.4rem;
-        top: 18%;
+        font-size: 3rem;
     }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 430px) {
     .header-text {
-        font-size: 4.2rem;
+        font-size: 2.5rem;
     }
 }
-
-/* @media screen and (min-width: 1950px) {
-    .header-text {
-        font-size: 6rem;
-    }
-}
-
-@media screen and (min-width: 1830px) {
-    .header-text {
-        font-size: 5rem;
-    }
-} */
 
 .connect-btn {
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    width: 100%;
-    height: auto;
-    transform: translate(21%, -50%);
-    z-index: 1;
+    position: relative;
+    width: fit-content;
+    z-index: 9;
 }
 
-@media screen and (min-width: 1830px) {
-    .connect-btn {
-        right: 35%;
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 1829px) {
-    .connect-btn {
-        right: 5%;
-    }
-}
-
-/* @media screen and (max-width: 1829px) {
-    .connect-btn {
-        right: 35%;
-    }
-} */
-
-.connect-btn svg {
-    width: 100%;
-}
-
-@media screen and (max-width: 1829px) {
+@media screen and (max-width: 1500px) {
     .connect-btn svg {
         width: 700px;
     }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 750px) {
     .connect-btn svg {
-        width: 600px;
+        max-width: 600px;
+        width: 100%;
     }
 }
 
-
-
-/* Left side (Text Content) */
-.text-content {
-    flex: 1;
-    padding: 0 0 80px 150px;
-    /* margin-right: 20px; */
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-self: stretch;
-    position: relative;
-}
-
-.text-content::before {
-    display: inline-block;
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 99.5%;
-    transform: translate(0, -50%);
-    width: 100%;
-    height: 180%;
-    background: rgb(91,1,255);
-    background: linear-gradient(0deg, rgba(91,1,255,1) 20%, rgba(152,1,255,0.9962359943977591) 40%, #DA69FF 60%);
-    border: none;
-    border-radius: 50%;
-    box-shadow: -8px -8px 6px -8px #c200f800;
-    z-index: 0;
-}
-
-@media screen and (max-width: 1679px) {
-    .text-content::before {
-        left: 97.5%;
+@media screen and (max-width: 500px) {
+    .connect-btn svg {
+        max-height: 100px;
     }
 }
 
-.text-content p {
-    font-size: 1.3rem;
-    text-transform: uppercase;
-    margin-bottom: 30px;
-    padding: 20px;
-    z-index: 11;
-    position: absolute;
-    bottom: 15%;
-    left: 18%;
+.display-svg {
+    display: block;
+    text-align: center;
 }
-
-@media screen and (min-width: 1950px) {
-    .text-content p {
-        font-size: 1.7rem;
-        margin-left: 30px;
+/* Hide display svg on bigger screens */
+@media screen and (min-width: 1241px) {
+    .display-svg {
+        display: none;
     }
 }
 
-@media screen and (min-width: 1830px) {
-    .text-content p {
-        font-size: 1.5rem;
-        text-transform: uppercase;
-        margin-bottom: 35px;
-        padding: 20px;
-        z-index: 11;
-    }
-}
-@media screen and (max-width: 1830px) {
-    .text-content p {
-        left: 10%;
+@media screen and (max-width: 750px) {
+    .display-svg svg{
+        max-width: 615px;
+        /* max-height: 150px; */
+        width: 100%;
     }
 }
 
-@media screen and (max-width: 1500px) {
-    .text-content p {
-        font-size: 1.2rem;
+@media screen and (max-width: 500px) {
+    .display-svg svg{
+        max-height: 150px;
     }
 }
 
-@media screen and (max-width: 1200px) {
-    .text-content p {
-        font-size: 1.1rem;
-        line-height: 2;
-    }
-} 
+/* Left side styles end here */
+
+/* Right side starts here */
 
 /* Right side (Image Slider) */
 .image-slider {
-    flex: 1.5;
+    grid-column: span 7;
     position: relative;
     overflow: hidden;
 }
@@ -341,6 +337,32 @@ main {
     position: relative;
 
 }
+@media screen and (max-width: 1240px) {
+    .slider {
+        height: 95%;
+    }
+}
+
+.slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -18px;
+    background: linear-gradient(180deg, #DA69FF 30%, #5B01FF 80%);
+    clip-path: ellipse(95% 120% at 100% 50%);
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+@media screen and (max-width: 1240px) {
+    .slider::after {
+        top: 12px;
+        left: 0;
+        background: linear-gradient(to left, #DA69FF 30%, #5B01FF 80%);
+        clip-path: ellipse(100% 100% at 50% 0);
+    }
+}
 
 .slide {
     min-width: 100%;
@@ -349,7 +371,7 @@ main {
     opacity: 1;
     transition: opacity 0.8s;
     position: absolute;
-    /* z-index: 2; */
+    z-index: 2;
 }
 
 .slide-content {
@@ -371,6 +393,13 @@ main {
     }
 }
 
+/* remove the svg sitting on top of the slider on a 1240px screen size */
+@media screen and (max-width: 1240px) {
+    .slide-content svg{
+        display: none;
+    }
+}
+
 .slide img {
     display: inline-block;
     width: 100%;
@@ -378,140 +407,227 @@ main {
     object-fit: cover;
     /* border: 15px solid red; */
     /* border-radius: 25% 0px 0px 25% / 120% 0px 0px 120%; */
-    clip-path: ellipse(95% 135% at 96% 50%);
+    clip-path: ellipse(95% 120% at 100% 50%);
     /* border-right: 0; */
     filter: brightness(60%);
 
 }
 
-
-/* Navigation Buttons */
-.nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0);
-    /* color: #ffffff; */
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 1.4rem;
-    border-radius: 5px;
-    z-index: 10;
+@media screen and (max-width: 1240px) {
+    .slide img {
+        clip-path: ellipse(100% 100% at 50% 0);
+    }
 }
 
-/* .prev {
-    left: 30px;
+/* Hero banner styles end here */
+
+
+
+/* ============***Beginning of nav styles***============ */
+.topnav {
+    font-size: 1rem;
+    transition: 0.3s;
 }
 
-.next {
-    right: 10px;
-} */
+/* Media query topnav */
+@media screen and (max-width: 1500px) {
+    .topnav {
+        font-size: .9rem;
+    }
+}
 
-.btn-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transform: translate(5%, 50%);
-    /* transform: translateY(50%, -50%); */
+@media screen and (max-width: 1148px) {
+    .topnav {
+        font-size: 1.02rem;
+    }
+}
+
+.topnav__link {
+    padding: 5px 10px;
+    transition: all 0.3s ease-in-out;
+    color: #fff;
+}
+
+/* When you mouse over the navigation links, change their color */
+.topnav__link:hover,
+.topnav__link:focus {
+    color: #FBAF1B;
+}
+
+/* The Overlay (background) */
+/* Media query overlay */
+@media screen and (max-width: 1240px) {
+    .overlay {
+        /* Height & width depends on how you want to reveal the overlay (see JS below) */
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 99;
+        right: 0;
+        top: 0;
+        background-color: #30414b;
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+
+    /* Position the content inside the overlay */
+    .overlay-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    /* The navigation links inside the overlay */
+    .overlay .topnav__link {
+        padding: 8px;
+        font-size: 1.8rem;
+        color: #fff;
+        background-color: transparent;
+        display: block;
+        transition: 0.3s;
+    }
+
+    /* When you mouse over the navigation links, change their color */
+    .overlay .topnav__link:hover,
+    .overlay .topnav__link:focus {
+        color: #FBAF1B;
+    }
+
+    /* Position the close button (top right corner) */
+    .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 2.5rem;
+        color: #fff;
+        z-index: 9;
+    }
+
+    .openbtn {
+        cursor: pointer;
+        margin: 10px 20px -12px 0;
+        z-index: 9;
+    }
+
+    .openbtn a {
+        font-size: 3.1rem;
+        cursor: pointer;
+        margin: 10px 20px -12px 0;
+    }
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+    .overlay .topnav__link {
+        font-size: 1.2rem;
+    }
+
+    .overlay .closebtn {
+        font-size: 3.1rem;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+/* Hide the closebtn & openbtn on larger screen divices */
+@media screen and (min-width: 1241px) {
+    .overlay .closebtn {
+        display: none;
+    }
+
+    .openbtn {
+        display: none;
+    }
+}
+
+/* ============***End of nav styles***============ */
+
+
+
+
+
+
+/* Middle section styles begin */
+
+main.middle-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0;
     width: 100%;
 }
 
-.btn-container button {
-    font-size: 2.2rem;
-    font-weight: 600;
-    color: #5b01ff;
+.middle-section p {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 0 0 60px 0;
     text-transform: uppercase;
-    /* width: 700px;
-    height: 139px; */
-    padding: 50px 150px;
-    box-shadow: 8px 10px 6px -8px rgba(89,89,89,1);
-    position: relative;
-    z-index: 13;
 }
 
-@media screen and (min-width: 1950px) {
-    .btn-container button {
-        padding: 60px 160px;
+@media screen and (max-width: 570px) {
+    .middle-section p {
+        font-size: 1.375rem;
+        padding: 0 20px 60px 20px;
     }
 }
 
-@media screen and (min-width: 1830px) {
-    .btn-container button {
-        padding: 60px 160px;
+.middle-section a {
+    display: inline-block;
+    text-decoration: none;
+    margin: 0 30px;
+}
+
+@media screen and (max-width: 1240px) {
+    .middle-section a {
+        display: flex;
+        flex-direction: column;
+        margin: 20px 0;
     }
 }
 
-@media screen and (max-width: 1630px) {
-    .btn-container button {
-        font-size: 2rem;
-        padding: 30px 140px;
+@media screen and (max-width: 1240px) {
+    .middle-section a:first-child {
+        margin-bottom: 60px;
     }
 }
 
-@media screen and (max-width: 1420px) {
-    .btn-container button {
-        font-size: 1.7rem;
-        padding: 30px 120px;
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .btn-container button {
-        font-size: 1.5rem;
-        padding: 30px 100px;
-    }
-}
-
-
-.border-gradient {
-    border: 10px solid;
+.middle-section a button {
+    font-family: GothamBold;
+    font-size: 2rem;
+    color: #fff;
+    background-color: #C200F8;
+    border: 1px solid #F6DBFF;
     border-radius: 100px;
-    border-image-slice: 1;
-    border-width: 2px;
-    border-color: #c700ff;
-  }
-
-.btn-container .find-ride-btn {
-    right: -40%;
-    margin-right: 30px;
+    min-width: 556px;
+    min-height: 110px;
+    width: 100%;
 }
 
-@media screen and (max-width: 2300px) {
-    .btn-container .find-ride-btn {
-        right: -20%;
+@media screen and (max-width: 570px) {
+    .middle-section a button {
+        font-size: 1.32rem;
+        min-width: fit-content;
+        min-height: 110px;
+        width: 100%;
+    }
+
+    .middle-section a button {
+        padding: 20px 50px;
     }
 }
 
-@media screen and (max-width: 1970px) {
-    .btn-container .find-ride-btn {
-        right: -10%;
+@media screen and (max-width: 380px) {
+    .middle-section a button {
+        font-size: 1.24rem;
     }
 }
 
-@media screen and (max-width: 1630px) {
-    .btn-container .find-ride-btn {
-        right: 0%;
-    }
-}
+/* Middle section styles end here */
 
-.btn-container .fl-economy-btn {
-    position: absolute;
-    top: 0;
-    right: 25%;
-}
-
-@media screen and (max-width: 2300px) {
-    .btn-container .fl-economy-btn {
-        right: 20%;
-    }
-}
-
-@media screen and (max-width: 1970px) {
-    .btn-container .fl-economy-btn {
-        right: 10%;
-    }
-}
+/* Footer styles begin here */
 
 .fdot-logo {
     display: flex;
@@ -525,14 +641,7 @@ main {
     margin: 0 10px;
 }
 
-.fdot-logo img {
- display: inline-block;
- margin: 0 40px;
-}
-
 .footer {
-    /* position: fixed;
-    bottom: 0; */
     width: 100%;
     text-align: center;
     background-color: #30414b;
@@ -551,6 +660,8 @@ main {
     font-family: GothamBook;
     font-size: .875rem;
 }
+
+/* Footer styles end here */
 
 
 /* Animations */
