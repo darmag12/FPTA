@@ -30,6 +30,10 @@
     src: url(./vendors/fonts/Gotham/GothamCond-Bold.otf);
 }
 
+@view-transition {
+    navigation: auto;
+}
+
 html, body {
     overflow-x: hidden;
 }
@@ -186,242 +190,6 @@ button, a {
 }
 
 
-.section-container {
-    background: radial-gradient(circle at -5% 50%, #5b01ff 25%, #9801ff 25% 37%, #c700ff 35% 70%, #5b01ff 80%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Homepage Hero banner styles start here */
-
-/* Left side styles start here */
-.hompage-hero {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: minmax(1080px, auto);
-    place-content: center;
-    width: 100%;
-    height: 100%;
-}
-
-@media screen and (max-width: 1240px) {
-    .hompage-hero {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 640px auto;
-        background: radial-gradient(circle at 50% 130%, #5b01ff 0%, #9801ff 25% 37%, #c700ff 35% 70%, #5b01ff 80%);
-        background-position: bottom;
-        background-size: 150% 150%;
-    }
-}
-
-.hompage-hero-left {
-    grid-column: 3/6;
-    align-content: center;
-}
-
-@media screen and (max-width: 2100px) {
-    .hompage-hero-left {
-        grid-column: 2/6;
-    }
-}
-
-@media screen and (max-width: 1800px) {
-    .hompage-hero-left {
-        padding-left: 30px;
-        grid-column: 1/6;
-    }
-}
-
-@media screen and (max-width: 1240px) {
-    .hompage-hero-left {
-        grid-row: 2;
-    }
-}
-
-@media screen and (max-width: 750px) {
-    .hompage-hero-left {
-        padding: 0 10px 0 10px;
-    }
-}
-
-.header-text {
-    font-family: GothamBold;
-    font-size: 5rem;
-    color: #fff;
-}
-
-@media screen and (max-width: 1500px) {
-    .header-text {
-        font-family: GothamBold;
-        font-size: 4.5rem;
-        color: #fff;
-    }
-}
-@media screen and (max-width: 750px) {
-    .header-text {
-        font-size: 3rem;
-    }
-}
-
-@media screen and (max-width: 430px) {
-    .header-text {
-        font-size: 2.5rem;
-    }
-}
-
-.connect-btn {
-    position: relative;
-    width: fit-content;
-    z-index: 9;
-}
-
-@media screen and (max-width: 1500px) {
-    .connect-btn svg {
-        width: 700px;
-    }
-}
-
-@media screen and (max-width: 750px) {
-    .connect-btn svg {
-        max-width: 600px;
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .connect-btn svg {
-        max-height: 100px;
-    }
-}
-
-.display-svg {
-    display: block;
-    text-align: center;
-}
-/* Hide display svg on bigger screens */
-@media screen and (min-width: 1241px) {
-    .display-svg {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 750px) {
-    .display-svg svg{
-        max-width: 615px;
-        /* max-height: 150px; */
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    .display-svg svg{
-        max-height: 150px;
-    }
-}
-
-/* Left side styles end here */
-
-/* Right side starts here */
-
-/* Right side (Image Slider) */
-.image-slider {
-    grid-column: span 7;
-    position: relative;
-    overflow: hidden;
-}
-
-.slider {
-    display: flex;
-    transition: transform 0.5s ease;
-    height: 100%;
-    position: relative;
-
-}
-@media screen and (max-width: 1240px) {
-    .slider {
-        height: 95%;
-    }
-}
-
-.slider::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -18px;
-    background: linear-gradient(180deg, #DA69FF 30%, #5B01FF 80%);
-    clip-path: ellipse(95% 120% at 100% 50%);
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-}
-
-@media screen and (max-width: 1240px) {
-    .slider::after {
-        top: 12px;
-        left: 0;
-        background: linear-gradient(to left, #DA69FF 30%, #5B01FF 80%);
-        clip-path: ellipse(100% 100% at 50% 0);
-    }
-}
-
-.slide {
-    min-width: 100%;
-    height: 100%;
-    overflow: hidden;
-    opacity: 1;
-    transition: opacity 0.8s;
-    position: absolute;
-    z-index: 2;
-}
-
-.slide-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.slide-content svg{
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%,50%);
-}
-
-@media screen and (max-width: 1500px) {
-    .slide-content svg{
-        width: 500px;
-    }
-}
-
-/* remove the svg sitting on top of the slider on a 1240px screen size */
-@media screen and (max-width: 1240px) {
-    .slide-content svg{
-        display: none;
-    }
-}
-
-.slide img {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* border: 15px solid red; */
-    /* border-radius: 25% 0px 0px 25% / 120% 0px 0px 120%; */
-    clip-path: ellipse(95% 120% at 100% 50%);
-    /* border-right: 0; */
-    filter: brightness(60%);
-
-}
-
-@media screen and (max-width: 1240px) {
-    .slide img {
-        clip-path: ellipse(100% 100% at 50% 0);
-    }
-}
-
-/* Hero banner styles end here */
-
-
 
 /* ============***Beginning of nav styles***============ */
 .topnav {
@@ -546,6 +314,264 @@ button, a {
 
 
 
+.section-container {
+    background: radial-gradient(circle at -5% 50%, #5b01ff 25%, #9801ff 25% 37%, #c700ff 35% 70%, #5b01ff 80%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Homepage Hero banner styles start here */
+
+/* Left side styles start here */
+.hompage-hero {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: minmax(1080px, auto);
+    place-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 1240px) {
+    .hompage-hero {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 620px auto;
+        background: radial-gradient(circle at 50% 130%, #5b01ff 0%, #9801ff 25% 37%, #c700ff 35% 70%, #5b01ff 80%);
+        background-position: bottom;
+        background-size: 150% 150%;
+    }
+}
+
+.hompage-hero-left {
+    grid-column: 3/6;
+    align-content: center;
+}
+
+@media screen and (max-width: 2100px) {
+    .hompage-hero-left {
+        grid-column: 2/6;
+    }
+}
+
+@media screen and (max-width: 1800px) {
+    .hompage-hero-left {
+        padding-left: 30px;
+        grid-column: 1/6;
+    }
+}
+
+@media screen and (max-width: 1240px) {
+    .hompage-hero-left {
+        grid-row: 2;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .hompage-hero-left {
+        padding: 0 10px 0 10px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .hompage-hero-left {
+        justify-items: center;
+    }
+}
+
+.header-text {
+    font-family: GothamBold;
+    font-size: 5rem;
+    color: #fff;
+}
+
+@media screen and (max-width: 1500px) {
+    .header-text {
+        font-family: GothamBold;
+        font-size: 4.5rem;
+        color: #fff;
+    }
+}
+@media screen and (max-width: 750px) {
+    .header-text {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .header-text {
+        font-size: 2.2rem;
+    }
+}
+
+.connect-btn {
+    position: relative;
+    width: fit-content;
+    z-index: 9;
+}
+
+@media screen and (max-width: 1500px) {
+    .connect-btn svg {
+        width: 700px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .connect-btn svg {
+        max-width: 600px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .connect-btn svg {
+        padding: 0 30px;
+        max-height: 100px;
+    }
+}
+
+.display-svg {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* Hide display svg on bigger screens */
+@media screen and (min-width: 1241px) {
+    .display-svg {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .display-svg .img-svg{
+        max-width: 400px;
+        /* max-height: 150px; */
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .display-svg .img-svg{
+        padding: 0 30px;
+        max-width: 300px;
+        max-height: 150px;
+    }
+}
+
+/* Left side styles end here */
+
+/* Right side starts here */
+
+/* Right side (Image Slider) */
+.image-slider {
+    grid-column: span 7;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+    position: relative;
+
+}
+@media screen and (max-width: 1240px) {
+    .slider {
+        height: 95%;
+    }
+}
+
+.slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -18px;
+    background: linear-gradient(180deg, #DA69FF 30%, #5B01FF 80%);
+    clip-path: ellipse(95% 120% at 100% 50%);
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+@media screen and (max-width: 1240px) {
+    .slider::after {
+        top: 12px;
+        left: 0;
+        background: linear-gradient(to left, #DA69FF 30%, #5B01FF 80%);
+        clip-path: ellipse(100% 100% at 50% 0);
+    }
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 0.8s;
+    position: absolute;
+    z-index: 2;
+}
+
+.slide-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide-content .slide-svg{
+    display: inline-block;
+    position: absolute;
+    top: 45%;
+    right: 50%;
+    width: fit-content;
+    height: fit-content;
+    min-width: 700px;
+    transform: translate(50%,50%);
+}
+
+@media screen and (max-width: 1700px) {
+    .slide-content .slide-svg{
+        min-width: 600px;
+        top: 50%;
+        right: 45%;
+    }
+}
+
+@media screen and (max-width: 1570px) {
+    .slide-content .slide-svg{
+        min-width: 500px;
+        right: 42%;
+    }
+}
+
+/* remove the svg sitting on top of the slider on a 1240px screen size */
+@media screen and (max-width: 1240px) {
+    .slide-content .slide-svg{
+        display: none;
+    }
+}
+
+.slide .img {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* border: 15px solid red; */
+    /* border-radius: 25% 0px 0px 25% / 120% 0px 0px 120%; */
+    clip-path: ellipse(95% 120% at 100% 50%);
+    /* border-right: 0; */
+    filter: brightness(60%);
+
+}
+
+@media screen and (max-width: 1240px) {
+    .slide .img {
+        clip-path: ellipse(100% 100% at 50% 0);
+        filter: brightness(100%);
+    }
+}
+
+/* Hero banner styles end here */
 
 
 
@@ -560,6 +586,12 @@ main.middle-section {
     width: 100%;
 }
 
+@media screen and (max-width: 500px) {
+    main.middle-section {
+        padding: 60px 30px;
+    }
+}
+
 .middle-section p {
     text-align: center;
     font-size: 1.5rem;
@@ -569,8 +601,8 @@ main.middle-section {
 
 @media screen and (max-width: 570px) {
     .middle-section p {
-        font-size: 1.375rem;
-        padding: 0 20px 60px 20px;
+        font-size: 1.175rem;
+        padding: 0 20px 40px 20px;
     }
 }
 
@@ -594,6 +626,12 @@ main.middle-section {
     }
 }
 
+@media screen and (max-width: 500px) {
+    .middle-section a:first-child {
+        margin-bottom: 30px;
+    }
+}
+
 .middle-section a button {
     font-family: GothamBold;
     font-size: 2rem;
@@ -601,29 +639,26 @@ main.middle-section {
     background-color: #C200F8;
     border: 1px solid #F6DBFF;
     border-radius: 100px;
-    min-width: 556px;
+    min-width: 500px;
     min-height: 110px;
     width: 100%;
 }
 
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 500px) {
     .middle-section a button {
-        font-size: 1.32rem;
+        font-size: 1rem;
+        padding: 20px 40px;
         min-width: fit-content;
-        min-height: 110px;
+        min-height: 80px;
         width: 100%;
-    }
-
-    .middle-section a button {
-        padding: 20px 50px;
     }
 }
 
-@media screen and (max-width: 380px) {
+/* @media screen and (max-width: 380px) {
     .middle-section a button {
         font-size: 1.24rem;
     }
-}
+} */
 
 /* Middle section styles end here */
 
